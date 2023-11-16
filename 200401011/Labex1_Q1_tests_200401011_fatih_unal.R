@@ -70,3 +70,26 @@ test_that("Longitude adlı sütunun 3.,  9. ve 10. elementleri negatif numeric d
 
 
 
+
+test_that("Test : finalResult adlı değiken Global Workspace’de mevcuttur.",{
+  expect_true(exists("finalResult", envir = .GlobalEnv), info = "finalResult adlı değişken mevcut değil.") 
+})
+
+test_that("Test : finalResult nesnesi bir data.frame'dir.",{
+  expect_is(finalResult,"data.frame",info = "finalResult nesnesi data.frama değil")
+})
+
+test_that("Test : finalResult adlı data.frame 3 sütundan oluşmaktadır.",{
+  expect_true(ncol(finalResult)==3)
+})
+
+test_that("Test : finalResult adlı data.frame sütün isimleri sırasıyla Longitude, Latitude ve Year olmalıdır.",{
+  expect_equal(colnames(finalResult),
+              c( "Longitude", "Latitude" ,"Year"),
+              info = "Sutun adları aynı olmalıdır")
+})
+
+
+
+
+
