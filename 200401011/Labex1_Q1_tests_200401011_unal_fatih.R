@@ -37,3 +37,10 @@ test_that("Test : maps nesnesi bir data.frame'dir.",{
   expect_is(maps,"data.frame",info = "maps nesnesi data.frama değil")
 })
 
+test_that("Test : idx nesnesinin tipi (class’ı) integer’dir.",{
+  expect_is(idx,"integer",info = "maps nesnesi integer değil")
+})
+test_that("Test : maps nesnesi bir data.frame'dir.",{
+  expect_is(maps,"data.frame",info = "maps nesnesi data.frama değil")
+})
+
