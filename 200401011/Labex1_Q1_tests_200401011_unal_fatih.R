@@ -17,7 +17,7 @@ test_that("Eğer mevcut ise veri setini silme", {
 
 
 
-test_that("MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya mevcuttur.", {
+test_that("Test : MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya aktif dizinde mevcuttur.", {
   directory <- getwd()
   relative_path <- file.path(directory,"/200401011/Labex1_Q1_200401011_unal_fatih.R")
   source(relative_path)
@@ -28,8 +28,12 @@ test_that("MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya mevcuttur.", {
 })
 
 
-test_that("maps adlı değişken mevcuttur",{
+test_that("Test : maps adlı değiken Global Workspace’de mevcuttur.",{
   expect_true(exists("maps", envir = .GlobalEnv), info = "maps adlı değişken mevcut değil.") 
   
+})
+
+test_that("Test : maps nesnesi bir data.frame'dir.",{
+  expect_is(maps,"data.frame",info = "maps nesnesi data.frama değil")
 })
 
