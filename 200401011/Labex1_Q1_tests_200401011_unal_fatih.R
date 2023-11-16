@@ -28,3 +28,8 @@ test_that("MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya mevcuttur.", {
 })
 
 
+test_that("maps adlı değişken mevcuttur",{
+  expect_true(exists("maps", envir = .GlobalEnv), info = "maps adlı değişken mevcut değil.") 
+  
+})
+
