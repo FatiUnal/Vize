@@ -19,11 +19,10 @@ test_that("Eğer mevcut ise veri setini silme", {
 
 test_that("Test : MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya aktif dizinde mevcuttur.", {
   directory <- getwd()
-  relative_path <- file.path(directory,"/Labex1_Q1_200401011_unal_fatih.R")
+  relative_path <- file.path(directory,"/Labex1_Q1_200401011_fatih_unal.R")
   source(relative_path)
-  
   file_path <- file.path(directory,"MapsThatChangedOurWorld_StoryMap_Data.csv")
-  expect_true(file.exists(file_path), info = "Dosya yok.")
+  expect_true(file.exists(file_path), info = "Dosya yok.",FALSE)
   
 })
 
@@ -62,6 +61,11 @@ test_that("Test : Latitude adlı sütun numeric değerlerden oluşmalıdır.", {
 
 test_that("Test : Year adlı sütun numeric değerlerden oluşmalıdır.", {
   expect_is(maps$Year, "numeric", info = "Year sütunu numeric değerlerden oluşmuyor.")
+})
+
+
+test_that("Longitude adlı sütunun 3.,  9. ve 10. elementleri negatif numeric değerler içermelidir.", {
+  expect_true(all(maps$Longitude[idx] < 0))
 })
 
 
