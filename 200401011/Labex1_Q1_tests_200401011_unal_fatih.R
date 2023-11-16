@@ -30,17 +30,29 @@ test_that("Test : MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya aktif di
 
 test_that("Test : maps adlı değiken Global Workspace’de mevcuttur.",{
   expect_true(exists("maps", envir = .GlobalEnv), info = "maps adlı değişken mevcut değil.") 
-  
 })
 
 test_that("Test : maps nesnesi bir data.frame'dir.",{
   expect_is(maps,"data.frame",info = "maps nesnesi data.frama değil")
+})
+
+test_that("Test : maps adlı data.frame'in ilk sütunu 'City' olmalıdır.", {
+  expect_equal(colnames(maps)[1], "City", info = "İlk sütun 'City' değil.")
+})
+
+test_that("Test : maps adlı data.frame'in 5. sütununun adında 'Title' kelimesi geçmelidir.", {
+  expect_true(grepl("Title", colnames(maps)[5], fixed = TRUE), info = "5. sütunun adında 'Title' kelimesi geçmiyor.")
+})
+
+
+
+
+test_that("Test : idx nesnesi Global Workspace’de mevcuttur.",{
+  expect_true(exists("idx", envir = .GlobalEnv), info = "idx adlı değişken mevcut değil.") 
 })
 
 test_that("Test : idx nesnesinin tipi (class’ı) integer’dir.",{
-  expect_is(idx,"integer",info = "maps nesnesi integer değil")
+  expect_is(idx,"integer",info = "idx nesnesi integer değil")
 })
-test_that("Test : maps nesnesi bir data.frame'dir.",{
-  expect_is(maps,"data.frame",info = "maps nesnesi data.frama değil")
-})
+
 
