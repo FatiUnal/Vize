@@ -16,3 +16,5 @@ maps$Longitude <- as.character(maps$Longitude)
 maps$Year <- gsub("AD","",maps$Year)
 maps$Year <- as.numeric(maps$Year)
 
+hist(maps$Year, breaks = 10)
+
