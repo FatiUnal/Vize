@@ -19,10 +19,10 @@ test_that("Eğer mevcut ise veri setini silme", {
 
 test_that("Test : MapsThatChangedOurWorld_StoryMap_Data.csv adlı dosya aktif dizinde mevcuttur.", {
   directory <- getwd()
-  relative_path <- file.path(directory,"/200401011/Labex1_Q1_200401011_unal_fatih.R")
+  relative_path <- file.path(directory,"/Labex1_Q1_200401011_unal_fatih.R")
   source(relative_path)
   
-  file_path <- file.path(directory,"/200401011/MapsThatChangedOurWorld_StoryMap_Data.csv")
+  file_path <- file.path(directory,"MapsThatChangedOurWorld_StoryMap_Data.csv")
   expect_true(file.exists(file_path), info = "Dosya yok.")
   
 })
@@ -59,5 +59,10 @@ test_that("Test : idx nesnesinin tipi (class’ı) integer’dir.",{
 test_that("Test : Latitude adlı sütun numeric değerlerden oluşmalıdır.", {
   expect_is(maps$Latitude, "numeric", info = "Latitude sütunu numeric değerlerden oluşmuyor.")
 })
+
+test_that("Test : Year adlı sütun numeric değerlerden oluşmalıdır.", {
+  expect_is(maps$Year, "numeric", info = "Year sütunu numeric değerlerden oluşmuyor.")
+})
+
 
 
