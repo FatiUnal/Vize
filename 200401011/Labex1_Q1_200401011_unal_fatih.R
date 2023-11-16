@@ -8,3 +8,7 @@ maps$Latitude <- gsub("N","",(maps$Latitude))
 maps$Latitude<-as.numeric(maps$Latitude)
 
 idx <- which(grepl("W",maps$Longitude))
+
+maps$Longitude <- gsub("E","",maps$Longitude)
+maps$Longitude <- gsub("W","",maps$Longitude)
+maps$Longitude <- as.character(maps$Longitude)
